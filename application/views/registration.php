@@ -8,6 +8,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 
+
+<!--View Users-->
+<div id="container">
+    <table style="width:50%" border="2">
+    <tr>
+        <th>Sr No</th>
+        <th>Name</th> 
+        <th>Email</th>
+        <th>Mobile</th>
+    </tr>
+    <?php
+    foreach($userArray as $value){
+    echo "<tr>
+        <td>$value[id]</td>
+        <td>$value[name]</td>
+        <td>$value[email]</td>
+        <td>$value[mobile]</td>
+    </tr>";
+    }
+    ?>
+    </table>
+</div>
+<br><br>
+
+        
+    
+
+<!--Enter Users-->
 <div id="container">
     <table style="width:50%" border="2">
     <tr>
