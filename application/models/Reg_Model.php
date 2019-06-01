@@ -22,5 +22,16 @@ class Reg_Model extends CI_Model{
     {
         $this->db->query("delete  from users where id='".$id."'");
     } 
+
+    function displayById($id)
+    {
+        $query=$this->db->query("select * from users where id='".$id."'");
+        return $query->result();
+    }
+    
+    function updateUser($name,$email,$mobile,$id)
+    {
+        $query=$this->db->query("update users SET name='$name',email='$email',mobile='$mobile' where id='".$id."'");
+    } 
 }
 ?>

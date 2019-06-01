@@ -37,11 +37,28 @@ class CTRL_Registration extends CI_Controller {
 
     }
 
-    public function deletedata()
+    public function deleteData()
     {
         $id=$this->input->get('id');
         $this->Reg_Model->deleteData($id);
         redirect("CTRL_Registration/view_users");
+    }
+
+
+    public function updateData()
+    {
+        $id=$this->input->get('id');
+        $result['data']=$this->Reg_Model->displayById($id);
+        $this->load->view('update_user',$result); 
+        
+        if($this->input->post('update'))
+            {
+                $name = $this->input->post('name');
+                $email = $this->input->post('email');
+                $mobile = $this->input->post('mobile');
+                $this->Reg_Model->updateUser($name,$email,$mobile,$id);
+                redirect("CTRL_Registration/view_users");
+            }
     }
 }
 ?>

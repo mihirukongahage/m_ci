@@ -16,6 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <th>Email</th>
         <th>Mobile</th>
         <th>Delete</th>
+        <th>Update</th>
     </tr>
     <?php
     foreach($userArray as $value){
@@ -25,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <td>$value[email]</td>
         <td>$value[mobile]</td>
         <td><a href='deleteData?id=$value[id]'>Delete</a></td>
+        <td><a href='updateData?id=$value[id]'>Update</a></td>
     </tr>";
     }
     ?>
