@@ -13,6 +13,12 @@ class CTRL_Registration extends CI_Controller {
     $this->load->model('Reg_Model');
     }
 
+    public function index(){
+
+        redirect("CTRL_Registration/view_users");
+
+    }
+
     public function view_users(){
 
         $this->load->model('Reg_Model');
@@ -39,6 +45,7 @@ class CTRL_Registration extends CI_Controller {
 
     public function deleteData()
     {
+        $this->load->helper('url');
         $id=$this->input->get('id');
         $this->Reg_Model->deleteData($id);
         redirect("CTRL_Registration/view_users");
