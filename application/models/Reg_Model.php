@@ -5,7 +5,7 @@ class Reg_Model extends CI_Model{
     {
         $this->load->database();
         //$this->db->insert("users", $name, $email, $mobile);
-        $query="insert into users values('','$name','$email','$mobile')";
+        $query="insert into users values('','$name','$email','$mobile', '$job', '$password')";
         $this->db->query($query);
     }
 

@@ -15,7 +15,7 @@ class CTRL_Registration extends CI_Controller {
 
     public function index(){
 
-        redirect("CTRL_Registration/view_users");
+        echo "null";
 
     }
 
@@ -38,7 +38,9 @@ class CTRL_Registration extends CI_Controller {
             $name = $this->input->post('name');
             $email = $this->input->post('email');
             $mobile = $this->input->post('mobile');
-            $this->Reg_Model->register_user($name, $email, $mobile);
+            $job = $this->input->post('job');
+            $password = $this->input->post('password');
+            $this->Reg_Model->register_user($name, $email, $mobile, $job, $password);
         }
 
     }
@@ -66,6 +68,18 @@ class CTRL_Registration extends CI_Controller {
                 $this->Reg_Model->updateUser($name,$email,$mobile,$id);
                 redirect("CTRL_Registration/view_users");
             }
+    }
+
+    public function show()
+    {
+        $this->load->view('Show');
+        $this->show->get($num1);
+    }
+
+    public function send_param()
+    {
+        $data['param'] = "From Controller";
+        $this->load->view('show',$data);
     }
 }
 ?>
