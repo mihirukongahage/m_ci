@@ -8,47 +8,27 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Dashboard</title>
   </head>
   <body>
-    <div class="mt-3">
-        <div class="col-6 col-md-4">
-            <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Rating</h5>
-                    <div class="offset-md-3">
-                        <p class="card-text"><h1><?php echo $avg_rate; ?></h1></p>
-                    </div>
-                </div>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000080;">
+        <a class="navbar-brand" href="#"><h4>CruiserR</h4></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/<?=base_url('RatingsReviews')?>">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/<?=base_url('index.php/Reserve/reservation')?>">Reservation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
         </div>
-    </div>
-    
-<table class="table">
-    <thead class="thead-light">
-        <tr>
-        <th scope="col">Number</th>
-        <th scope="col">Date</th>
-        <th scope="col">Review</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-    <?php
-        $i=1;
-        foreach($comment_array as $row)
-        {
-            echo "<tr>";
-            echo "<td>".$row->id."</td>";
-            echo "<td>".$row->name."</td>";
-            echo "<td>".$row->comments."</td>";
-            echo "</tr>";
-            $i++;
-        }
-        ?>
-        
-    </tbody>
-</table>
+    </nav>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -57,7 +37,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
-
-
-
-

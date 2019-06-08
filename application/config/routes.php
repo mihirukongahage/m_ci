@@ -54,4 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['upload'] = 'Upload';
 $route['validation'] = 'Form';
-$route['CTRL_Registration/lol/(:any)/(:any)'] = 'CTRL_Registration/show/$1/$2';
+//$route['CTRL_Registration/lol/(:any)/(:any)'] = 'CTRL_Registration/show/$1/$2';

@@ -14,15 +14,8 @@ class RatingsReviews extends CI_Controller {
 
     public function index(){
 
-        echo "null";
-
-    }
-
-    public function view_average_ratings(){
-
         $this->load->model('GetRatings');
         $rate_array = $this->GetRatings->averageRating();
-        //$this->load->view('ratings_and_reviews',$data);
 
         /*Calculate the average rating*/ 
         $tot_rate = 0; 
@@ -32,8 +25,24 @@ class RatingsReviews extends CI_Controller {
             $count = $count + 1;
         }
         $data['avg_rate'] = $tot_rate/$count;
+
+        /*Load navigation bar*/ 
+        $this->load->view('navbar');
+
+        $data['comment_array'] = $this->GetRatings->displayReviews();
+        /*Calculate the average rating*/ 
         $this->load->view('ratings_and_reviews',$data);
+        
+        
     }
 
+    public function reservation(){
+
+        $this->load->view('navbar');
+        $this->load->model('GetRatings');
+        //$rate_array = $this->GetRatings->averageRating();
+        $data['reservation_array'] = $this->GetRatings->viewReservation();
+        $this->load->view('reserve',$data);
+    }
 }
 ?>
