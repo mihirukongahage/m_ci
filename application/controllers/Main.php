@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CTRL_Registration extends CI_Controller {
+class Main extends CI_Controller {
 
     public function __construct()
     {
@@ -9,13 +9,65 @@ class CTRL_Registration extends CI_Controller {
     
     $this->load->database();
     $this->load->helper('url');
+    $this->load->helper('form');
+    $this->load->library('form_validation');
     
-    $this->load->model('Reg_Model');
     }
 
     public function index(){
 
-        echo "null";
+        //$this->load->view('login');
+
+    }
+
+    public function login(){
+
+        $this->load->view('login');
+
+    }
+
+    public function login_validation(){
+
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        if($this->form_validation->run())
+        {
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+
+            //Model functions
+            $this->load->model('connect');
+            if($this->connect->login_auth($username, $password))
+            {
+                $session_data = array(
+                    'username' => $username
+                );
+                $this->session->set_userdata($session_data);
+                redirect(base_url(). 'index.php/main/enter');
+            }
+            else
+            {
+                $this->session->set_flashdata('error', 'Invalid Username and Password');
+                redirect(base_url(). 'index.php/main/login');
+            }
+        }
+        else
+        {
+            $this->login();
+        }
+
+    }
+
+    public function enter(){
+
+        if($this->session->userdata('username') != '')
+        {
+            echo "IN";
+        }
+        else
+        {
+            redirect(base_url(). 'main/login');
+        }
 
     }
 
