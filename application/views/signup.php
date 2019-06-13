@@ -16,22 +16,37 @@
     <div class="col col-sm-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
         <div class="card login-card" style="width: 25rem"">
         <div class="card-body">
-            <h3 class="card-title">Login</h3>
-            <h6 class="card-subtitle mb-2 text-muted">Enter your credentials</h6>
+            <h3 class="card-title">SignUp</h3>
+            <h6 class="card-subtitle mb-2 text-muted">Enter your details</h6>
         </div>
         <div class="card-body">
 
             <!--Form-->
-            <form method="post" action="<?php echo base_url(); ?>index.php/main/login_validation">
+            <form method="post" action="<?php echo base_url(); ?>index.php/main/signup_validation">
             <div class="form-group">
-                <label for="loginUsername">Username</label>
-                <input type="text" name="username" class="form-control" id="loginUsername" placeholder="Enter username">
-                <span class="text-danger"><?php echo form_error('username'); ?></span>
+                <label for="Firstname">Firstname</label>
+                <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Enter Firstname">
+                <!-- <span class="text-danger"><?php echo form_error('username'); ?></span> -->
             </div>
             <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Password">
-                <span class="text-danger"><?php echo form_error('password'); ?></span>
+                <label for="Lastname">Lastname</label>
+                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Lastname">
+                <!-- <span class="text-danger"><?php echo form_error('password'); ?></span> -->
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">
+                <!-- <span class="text-danger"><?php echo form_error('password'); ?></span> -->
+            </div>
+            <div class="form-group">
+                <label for="Lastname">Lastname</label>
+                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Lastname">
+                <!-- <span class="text-danger"><?php echo form_error('password'); ?></span> -->
+            </div>
+            <div class="form-group">
+                <label for="Lastname">Lastname</label>
+                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Lastname">
+                <!-- <span class="text-danger"><?php echo form_error('password'); ?></span> -->
             </div>
             <div class="text-center">
             <button type="submit" name="insert" class="btn btn-primary">Log In</button>
@@ -44,7 +59,7 @@
         </div>
         <div class="card-body">
             <div class="text-center">
-                <a class="card-link" href="<?=base_url('index.php/main/signup')?>">Create an account</a>
+                <a class="card-link">Create an account</a>
             </div>
         </div>
         </div>

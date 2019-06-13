@@ -19,6 +19,16 @@ class Connect extends CI_Model{
         }
     }
 
+    function get_service()
+    {
+        $this->load->database();
+        // $this->db->where('name', $name);
+        // $this->db->where('price', $price);
+        // $this->db->where('description', $description);
+        $query= $this->db->get('service');
+        return $query;
+    }
+
    
 }
 ?>

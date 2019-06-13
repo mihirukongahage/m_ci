@@ -62,7 +62,13 @@ class Main extends CI_Controller {
 
         if($this->session->userdata('username') != '')
         {
-            echo "IN";
+            $data["username"] = $this->session->userdata('username');
+            $this->load->view('navbar',$data);
+            
+            $this->load->model('connect');
+            $p['services'] = $this->connect->get_service();        
+            $this->load->view('dashboard',$p);
+
         }
         else
         {
@@ -70,6 +76,30 @@ class Main extends CI_Controller {
         }
 
     }
+
+    public function logout(){
+
+        $this->session->unset_userdata('username');
+        redirect(base_url().'index.php/main/login');
+
+    }
+
+    public function dashboard(){
+
+        $this->load->view('navbar');
+        $this->load->model('connect');
+        $data['services'] = $this->connect->get_service();        
+        $this->load->view('dashboard',$data);
+
+    }
+
+
+
+
+
+
+
+
 
     public function view_users(){
 

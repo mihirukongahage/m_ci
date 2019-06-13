@@ -18,15 +18,21 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/<?=base_url('RatingsReviews')?>">Dashboard <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?=base_url('index.php/main/dashboard')?>">Dashboard <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/<?=base_url('index.php/Reserve/reservation')?>">Reservation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="<?=base_url('index.php/main/reservation')?>">Reservation</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-lg-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $username ?></a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="<?=base_url('index.php/main/profile')?>">Profile</a>
+            <a class="dropdown-item" href="<?=base_url('index.php/main/logout')?>">Logout</a>
+          </div>
+        </li>
+      </ul>
         </div>
     </nav>
 
