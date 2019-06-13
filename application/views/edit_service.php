@@ -12,38 +12,30 @@
   <body>
     
     <div class="container">
-      <h1>Services</h1>
-      <a class="btn btn-primary float-right" href="<?=base_url('index.php/main/add_service')?>">Add Service</a>
-    <div class="row">
-    <?php 
-      if($services->num_rows()>0)
-      {
-        foreach($services->result() as $row)
-        {
-          ?>
-          <div class="">
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title"> <?php echo $row->name; ?> </h5>
-                <h6 class="card-subtitle mb-2 text-muted">Rs.<?php echo $row->price; ?>.00</h6>
-                <p class="card-text"><?php echo $row->description; ?></p>
-                <a class="btn btn-primary" href="edit_service/?id=<?php echo $row->id; ?>">Edit</a>
-                <a class="btn btn-secondary" href="remove_service/?id=<?php echo $row->id; ?>" id="<?php echo $row->id; ?>">Remove</a>
-              </div>
-            </div>     
-          </div>    
-    <?php }
-      }
-      else
-      {
-        echo "no data";
-      }
-    ?>
-</div>
-</div>
-  
+      <h1>Edit Service</h1>
+        <div class="offset-2">
+            <div class="card" style="width: 42rem;">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="name">Service Name</label>
+                    <input type="text" class="form-control" id="name" value="<?php echo $services->name; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="name">Price</label>
+                    <input type="number" class="form-control" id="name" value="<?php echo $services->price; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="<?php echo $services->description; ?>"></textarea>
+                </div>
+                <a class="btn btn-secondary" href="<?=base_url('index.php/main/enter')?>" id="<?php echo $services->id; ?>">Back</a>
+                <a class="btn btn-primary" href="remove_service/?id=<?php echo $services->id; ?>" id="<?php echo $services->id; ?>">Save</a>
+            </div>
+        </div>
+    </div>
+    </div>
     
-  
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

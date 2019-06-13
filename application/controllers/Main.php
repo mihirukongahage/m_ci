@@ -93,75 +93,107 @@ class Main extends CI_Controller {
 
     }
 
+    public function add_service(){
 
-
-
-
-
-
-
-
-    public function view_users(){
-
-        $this->load->model('Reg_Model');
-        $data['userArray'] = $this->Reg_Model->return_users();
-        $this->load->view('display_users',$data);
-        //print_r( $data['userArray']);
+        $this->load->view('navbar');
+        $this->load->model('connect');
+        $data['services'] = $this->connect->get_service();        
+        $this->load->view('dashboard',$data);
 
     }
 
-    
-    public function register(){
+    public function remove_service(){
 
-        $this->load->view('registration');
 
-        if($this->input->post('save'))
+        //$this->load->helper('url');
+        
+        $this->load->model('connect');
+        $id=$this->input->get('id');
+        if($this->connect->rem_service($id))
         {
-            $name = $this->input->post('name');
-            $email = $this->input->post('email');
-            $mobile = $this->input->post('mobile');
-            $job = $this->input->post('job');
-            $password = $this->input->post('password');
-            $this->Reg_Model->register_user($name, $email, $mobile, $job, $password);
+            redirect(base_url()."index.php/main/enter");
         }
 
     }
 
-    public function deleteData()
-    {
-        $this->load->helper('url');
-        $id=$this->input->get('id');
-        $this->Reg_Model->deleteData($id);
-        redirect("CTRL_Registration/view_users");
-    }
+    public function edit_service(){
 
+        $p["username"] = $this->session->userdata('username');
+        $this->load->view('navbar',$p);
 
-    public function updateData()
-    {
+        $this->load->model('connect');
         $id=$this->input->get('id');
-        $result['data']=$this->Reg_Model->displayById($id);
-        $this->load->view('update_user',$result); 
+        if($this->connect->ed_service($id))
+        {
+            $data['services'] = $this->connect->ed_service($id);        
+            $this->load->view('edit_service',$data);
+        }
         
-        if($this->input->post('update'))
-            {
-                $name = $this->input->post('name');
-                $email = $this->input->post('email');
-                $mobile = $this->input->post('mobile');
-                $this->Reg_Model->updateUser($name,$email,$mobile,$id);
-                redirect("CTRL_Registration/view_users");
-            }
     }
 
-    public function show()
-    {
-        $this->load->view('Show');
-        $this->show->get($num1);
-    }
 
-    public function send_param()
-    {
-        $data['param'] = "From Controller";
-        $this->load->view('show',$data);
-    }
-}
+
+    // public function view_users(){
+
+    //     $this->load->model('Reg_Model');
+    //     $data['userArray'] = $this->Reg_Model->return_users();
+    //     $this->load->view('display_users',$data);
+    //     //print_r( $data['userArray']);
+
+    // }
+
+    
+    // public function register(){
+
+    //     $this->load->view('registration');
+
+    //     if($this->input->post('save'))
+    //     {
+    //         $name = $this->input->post('name');
+    //         $email = $this->input->post('email');
+    //         $mobile = $this->input->post('mobile');
+    //         $job = $this->input->post('job');
+    //         $password = $this->input->post('password');
+    //         $this->Reg_Model->register_user($name, $email, $mobile, $job, $password);
+    //     }
+
+    // }
+
+    // public function deleteData()
+    // {
+    //     $this->load->helper('url');
+    //     $id=$this->input->get('id');
+    //     $this->Reg_Model->deleteData($id);
+    //     redirect("CTRL_Registration/view_users");
+    // }
+
+
+    // public function updateData()
+    // {
+    //     $id=$this->input->get('id');
+    //     $result['data']=$this->Reg_Model->displayById($id);
+    //     $this->load->view('update_user',$result); 
+        
+    //     if($this->input->post('update'))
+    //         {
+    //             $name = $this->input->post('name');
+    //             $email = $this->input->post('email');
+    //             $mobile = $this->input->post('mobile');
+    //             $this->Reg_Model->updateUser($name,$email,$mobile,$id);
+    //             redirect("CTRL_Registration/view_users");
+    //         }
+    // }
+
+    // public function show()
+    // {
+    //     $this->load->view('Show');
+    //     $this->show->get($num1);
+    // }
+
+    // public function send_param()
+    // {
+    //     $data['param'] = "From Controller";
+    //     $this->load->view('show',$data);
+    // }
+ }
 ?>
