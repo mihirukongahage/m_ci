@@ -86,7 +86,9 @@ class Main extends CI_Controller {
 
     public function dashboard(){
 
-        $this->load->view('navbar');
+        $p["username"] = $this->session->userdata('username');
+        $this->load->view('navbar',$p);
+
         $this->load->model('connect');
         $data['services'] = $this->connect->get_service();        
         $this->load->view('dashboard',$data);
@@ -161,7 +163,54 @@ class Main extends CI_Controller {
             }
     }
 
+    public function signup()
+    {
+        $this->load->view('signup');
 
+    }
+
+    public function signup_validate()
+    {
+        $this->form_validation->set_rules('fname', 'Firstname', 'required');
+        $this->form_validation->set_rules('lname', 'Lastname', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('cpassword', 'CPassword', 'required');
+        
+        if($this->input->post('save'))
+        {
+            $fname = $this->input->post('fname');
+            $lname = $this->input->post('lname');
+            $uname = $this->input->post('uname');
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+            $isAdmin = 0;
+            $this->connect->sign_up($fname, $lname, $uname, $email, $password, $isAdmin);
+        }
+    }
+
+    public function addnewservice()
+    {
+        $p["username"] = $this->session->userdata('username');
+        $this->load->view('navbar',$p);
+
+        $this->load->view('add_new_service');
+        $this->load->model('connect');
+        $data = array(
+            "name" => $this->input->post("servicename"),
+            "price" => $this->input->post("price"),
+            "description" => $this->input->post("description")
+        );
+        if($data['name'] != NULL)
+        {
+            $this->connect->add_service($data);
+        }
+        //$this->connect->add_service($data);
+        //redirect("main/edit_service");
+
+
+    }
 
     // public function view_users(){
 

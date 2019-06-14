@@ -55,6 +55,13 @@ class Connect extends CI_Model{
         return $row;
     }
 
+    function add_service($data)
+    {
+        $this->load->database();
+        $this->db->insert('service',$data);
+        
+    }
+
    
 }
 ?>

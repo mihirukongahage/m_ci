@@ -22,7 +22,7 @@
         <div class="card-body">
 
             <!--Form-->
-            <form method="post" action="<?php echo base_url(); ?>index.php/main/signup_validation">
+            <form method="post" action="<?php echo base_url(); ?>index.php/main/signup_validate">
             <div class="form-group">
                 <label for="Firstname">Firstname</label>
                 <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Enter Firstname">
@@ -31,25 +31,30 @@
             <div class="form-group">
                 <label for="Lastname">Lastname</label>
                 <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Lastname">
-                <!-- <span class="text-danger"><?php echo form_error('password'); ?></span> -->
+                <!-- <span class="text-danger"><?php echo form_error('lastname'); ?></span> -->
+            </div>
+            <div class="form-group">
+                <label for="Username">Username</label>
+                <input type="text" name="username" class="form-control" id="username" placeholder="Enter username">
+                <!-- <span class="text-danger"><?php echo form_error('username'); ?></span> -->
             </div>
             <div class="form-group">
                 <label for="Email">Email</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">
-                <!-- <span class="text-danger"><?php echo form_error('password'); ?></span> -->
+                <!-- <span class="text-danger"><?php echo form_error('email'); ?></span> -->
             </div>
             <div class="form-group">
-                <label for="Lastname">Lastname</label>
-                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Lastname">
-                <!-- <span class="text-danger"><?php echo form_error('password'); ?></span> -->
+                <label for="Password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
+                <!-- <span class="text-danger"><?php echo form_error('lastname'); ?></span> -->
             </div>
             <div class="form-group">
-                <label for="Lastname">Lastname</label>
-                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter Lastname">
-                <!-- <span class="text-danger"><?php echo form_error('password'); ?></span> -->
+                <label for="CPassword">Confirm Password</label>
+                <input type="password" name="cpassword" class="form-control" id="cpassword" placeholder="Confirm Password">
+                <!-- <span class="text-danger"><?php echo form_error('cpassword'); ?></span> -->
             </div>
             <div class="text-center">
-            <button type="submit" name="insert" class="btn btn-primary">Log In</button>
+            <button type="submit" name="insert" class="btn btn-primary" name="save">SignUp</button>
             <?php
                 echo $this->session->flashdata("error"); 
              ?>
@@ -59,7 +64,7 @@
         </div>
         <div class="card-body">
             <div class="text-center">
-                <a class="card-link">Create an account</a>
+                <a class="card-link" href="<?=base_url('')?>">I have an account</a>
             </div>
         </div>
         </div>
