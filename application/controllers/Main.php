@@ -95,7 +95,9 @@ class Main extends CI_Controller {
 
     public function add_service(){
 
-        $this->load->view('navbar');
+        $p["username"] = $this->session->userdata('username');
+        $this->load->view('navbar',$p);
+
         $this->load->model('connect');
         $data['services'] = $this->connect->get_service();        
         $this->load->view('dashboard',$data);
@@ -129,6 +131,34 @@ class Main extends CI_Controller {
             $this->load->view('edit_service',$data);
         }
         
+    }
+
+    public function save_edit_service(){
+
+        //$service_id = $this->uri->segment(3);
+        $service_id = $this->input->get('id');
+        $this->load->model('connect');
+        $data['service_data'] = $this->connect->get_by_id($service_id);
+        $this->load->view('edit_service');
+        
+        
+    }
+
+    public function update_service()
+    {
+        $id=$this->input->get('id');
+        $this->load->model('connect');
+        $result['services']=$this->connect->ed_service($id);
+        redirect("main/edit_service");
+        
+        if($this->input->post('update'))
+            {
+                $name = $this->input->post('name');
+                $price = $this->input->post('price');
+                $description = $this->input->post('description');
+                $this->connect->update_service($name,$price,$description,$id);
+                redirect("main/edit_service");
+            }
     }
 
 

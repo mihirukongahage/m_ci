@@ -36,24 +36,23 @@ class Connect extends CI_Model{
 
     function ed_service($id)
     {
-        // $this->load->database();
-        // $this->db->where('id', $id);
-        // $q = $this->db->get('service');
-        // return $q;
-
-
         $query = $this->db->query("SELECT * FROM service WHERE id=$id");
-
         $row = $query->row();
-
         return $row;
+    }
 
-        /*if (isset($row))
-        {
-                echo $row->id;
-                echo $row->name;
-                echo $row->price;
-        }*/
+    function update_service($id)
+    {
+        $this->db->where("id",$id);
+        $query = $this->db->get("service");
+        return $query->results();
+    }
+
+    function get_by_id($id)
+    {
+        $query=$this->db->query("SELECT * FROM service WHERE id=$id");
+        $row = $query->row();
+        return $row;
     }
 
    

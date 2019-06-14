@@ -29,7 +29,7 @@
                     <textarea class="form-control" id="description" rows="3" placeholder="<?php echo $services->description; ?>"></textarea>
                 </div>
                 <a class="btn btn-secondary" href="<?=base_url('index.php/main/enter')?>" id="<?php echo $services->id; ?>">Back</a>
-                <a class="btn btn-primary" href="remove_service/?id=<?php echo $services->id; ?>" id="<?php echo $services->id; ?>">Save</a>
+                <a class="btn btn-primary" href="<?php echo base_url() ?>index.php/main/update_service/<?php echo $services->id ?>" id="<?php echo $services->id; ?>">Save</a>
             </div>
         </div>
     </div>

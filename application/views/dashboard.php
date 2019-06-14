@@ -21,7 +21,7 @@
         foreach($services->result() as $row)
         {
           ?>
-          <div class="">
+          <div class="offset-1 mt-3">
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title"> <?php echo $row->name; ?> </h5>
