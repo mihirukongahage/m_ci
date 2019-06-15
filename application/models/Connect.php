@@ -52,14 +52,22 @@ class Connect extends CI_Model{
         return true;
     }
 
+    /*
 
+    Pass field data to the edit_service view
+
+    */
     function ed_service($id)
     {
         $query = $this->db->query("SELECT * FROM service WHERE id=$id");
         $row = $query->row();
         return $row;
     }
+    /*
 
+    Update service
+
+    */
     function update_service($servicename, $price, $description, $id)
     {
         $data = array(
@@ -72,13 +80,6 @@ class Connect extends CI_Model{
         $this->db->where('id',$id);
         $this->db->update('service',$data);
 
-    }
-
-    function get_by_id($id)
-    {
-        $query=$this->db->query("SELECT * FROM service WHERE id=$id");
-        $row = $query->row();
-        return $row;
     }
 
     /*
@@ -94,6 +95,5 @@ class Connect extends CI_Model{
         
     }
 
-   
 }
 ?>

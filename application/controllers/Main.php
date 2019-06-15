@@ -94,6 +94,11 @@ class Main extends CI_Controller {
         }
 
     }
+    /*
+
+    Logout
+
+    */
 
     public function logout(){
 
@@ -120,7 +125,7 @@ class Main extends CI_Controller {
 
     /*
 
-    
+    Add service
 
     */ 
     public function add_service(){
@@ -172,7 +177,11 @@ class Main extends CI_Controller {
         }
         
     }
+    /*
 
+    Update an existing service
+
+    */
 
     public function update_service()
     {
@@ -184,6 +193,7 @@ class Main extends CI_Controller {
                 $description = $this->input->post('description');
                 $id = $this->input->get('id');
                 $this->connect->update_service($name,$price,$description,$id);
+                // Redirect to dashboard
                 redirect(base_url()."index.php/main/enter");
             }
     }

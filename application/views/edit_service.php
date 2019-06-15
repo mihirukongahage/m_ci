@@ -16,22 +16,29 @@
         <div class="offset-2">
             <div class="card" style="width: 42rem;">
             <div class="card-body">
+              <!-- Form -->
               <form method="post" action="<?=base_url('index.php/main/update_service/?id=').$services->id?>">
+              <!-- Service name -->
                 <div class="form-group">
                     <label for="name">Service Name</label>
                     <input type="text" class="form-control" id="name" name="servicename" value="<?php echo $services->name; ?>">
                 </div>
+                <!-- Service price -->
                 <div class="form-group">
                     <label for="name">Price</label>
                     <input type="number" class="form-control" id="name" name="price" value="<?php echo $services->price; ?>">
                 </div>
+                <!-- Description -->
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea class="form-control" id="description" rows="3" name="description" placeholder="<?php echo $services->description; ?>"></textarea>
                 </div>
+                <!-- back button -->
                 <a class="btn btn-secondary" href="<?=base_url('index.php/main/enter')?>" id="<?php echo $services->id; ?>">Back</a>
+                <!-- submit -->
                 <input class="btn btn-primary" type="submit" name="save" value="Save">
               </form>
+              <!-- /Form -->
             </div>
         </div>
     </div>
