@@ -173,16 +173,6 @@ class Main extends CI_Controller {
         
     }
 
-    public function save_edit_service(){
-
-        //$service_id = $this->uri->segment(3);
-        $service_id = $this->input->get('id');
-        $this->load->model('connect');
-        $data['service_data'] = $this->connect->get_by_id($service_id);
-        $this->load->view('edit_service');
-        
-        
-    }
 
     public function update_service()
     {
@@ -192,11 +182,12 @@ class Main extends CI_Controller {
                 $name = $this->input->post('servicename');
                 $price = $this->input->post('price');
                 $description = $this->input->post('description');
+                $id = $this->input->get('id');
                 $this->connect->update_service($name,$price,$description,$id);
-                redirect("main/edit_service");
+                redirect(base_url()."index.php/main/enter");
             }
     }
-    
+
     /*
 
     Signup form

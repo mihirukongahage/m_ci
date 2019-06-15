@@ -52,7 +52,7 @@ class Connect extends CI_Model{
         return true;
     }
 
-    
+
     function ed_service($id)
     {
         $query = $this->db->query("SELECT * FROM service WHERE id=$id");
@@ -64,10 +64,11 @@ class Connect extends CI_Model{
     {
         $data = array(
             'id' => $id,
-            'name' => $name,
+            'name' => $servicename,
             'price' => $price,
             'description' => $description
          );
+        $this->db->set($data);
         $this->db->where('id',$id);
         $this->db->update('service',$data);
 

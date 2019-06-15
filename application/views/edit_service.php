@@ -16,7 +16,7 @@
         <div class="offset-2">
             <div class="card" style="width: 42rem;">
             <div class="card-body">
-              <form method="post">
+              <form method="post" action="<?=base_url('index.php/main/update_service/?id=').$services->id?>">
                 <div class="form-group">
                     <label for="name">Service Name</label>
                     <input type="text" class="form-control" id="name" name="servicename" value="<?php echo $services->name; ?>">
