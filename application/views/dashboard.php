@@ -15,6 +15,7 @@
     
     <div class="container">
       <h1>Services</h1>
+      <!-- Add service button -->
       <a class="btn btn-primary float-right" href="<?=base_url('index.php/main/addnewservice')?>">Add Service</a>
     <div class="row">
     <?php 
@@ -23,12 +24,14 @@
         foreach($services->result() as $row)
         {
           ?>
+          <!-- Card to dispaly the service -->
           <div class="offset-1 mt-3">
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title"> <?php echo $row->name; ?> </h5>
                 <h6 class="card-subtitle mb-2 text-muted">Rs.<?php echo $row->price; ?>.00</h6>
                 <p class="card-text"><?php echo $row->description; ?></p>
+                <!-- Edit and remove buttons -->
                 <a class="btn btn-primary" href="edit_service/?id=<?php echo $row->id; ?>">Edit</a>
                 <a class="btn btn-secondary" href="remove_service/?id=<?php echo $row->id; ?>" id="<?php echo $row->id; ?>">Remove</a>
               </div>
@@ -38,7 +41,8 @@
       }
       else
       {
-        echo "no data";
+        //When no services are available
+        echo "No Services Available";
       }
     ?>
 </div>

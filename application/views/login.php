@@ -23,18 +23,21 @@
 
             <!--Form-->
             <form method="post" action="<?php echo base_url(); ?>index.php/main/login_validation">
-            <div class="form-group">
-                <label for="loginUsername">Username</label>
-                <input type="text" name="username" class="form-control" id="loginUsername" placeholder="Enter username">
-                <span class="text-danger"><?php echo form_error('username'); ?></span>
-            </div>
-            <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Password">
-                <span class="text-danger"><?php echo form_error('password'); ?></span>
-            </div>
-            <div class="text-center">
-            <button type="submit" name="insert" class="btn btn-primary">Log In</button>
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" name="username" class="form-control" id="loginUsername" placeholder="Enter username">
+                    <span class="text-danger"><?php echo form_error('username'); ?></span>
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Password">
+                    <span class="text-danger"><?php echo form_error('password'); ?></span>
+                </div>
+                <div class="text-center">
+
+                <button type="submit" name="insert" class="btn btn-primary">Log In</button>
             <?php
                 echo $this->session->flashdata("error"); 
              ?>
@@ -44,6 +47,7 @@
         </div>
         <div class="card-body">
             <div class="text-center">
+                <!-- Direct to signup -->
                 <a class="card-link" href="<?=base_url('index.php/main/signup')?>">Create an account</a>
             </div>
         </div>

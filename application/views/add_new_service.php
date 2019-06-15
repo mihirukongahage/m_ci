@@ -16,26 +16,30 @@
         <div class="offset-2">
             <div class="card" style="width: 42rem;">
             <div class="card-body">
+              <!-- Form -->
                 <form method="post">
-                <div class="form-group">
+                  <!-- Service name -->
+                 <div class="form-group">
                     <label for="name">Service Name</label>
                     <input type="text" class="form-control" id="name" name="servicename" placeholder="Service name">
                 </div>
+                <!-- Service price -->
                 <div class="form-group">
                     <label for="name">Price</label>
                     <input type="number" class="form-control" id="name" name="price" placeholder="Service price">
                 </div>
+                <!-- Description -->
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea class="form-control" id="description" rows="3" name="description" placeholder="Description"></textarea>
                 </div>
                 <a class="btn btn-secondary" href="<?=base_url('index.php/main/enter')?>">Back</a>
-                <input class="btn btn-primary" type="submit" name="insert" value="Save">
+                <input class="btn btn-primary" type="submit" name="save" value="Save">
                 <div class="form-group">
-                    
                 </div>
             </div>
             </form>
+            <!-- /form -->
         </div>
     </div>
     </div>

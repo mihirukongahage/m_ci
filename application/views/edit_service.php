@@ -16,20 +16,22 @@
         <div class="offset-2">
             <div class="card" style="width: 42rem;">
             <div class="card-body">
+              <form method="post">
                 <div class="form-group">
                     <label for="name">Service Name</label>
-                    <input type="text" class="form-control" id="name" value="<?php echo $services->name; ?>">
+                    <input type="text" class="form-control" id="name" name="servicename" value="<?php echo $services->name; ?>">
                 </div>
                 <div class="form-group">
                     <label for="name">Price</label>
-                    <input type="number" class="form-control" id="name" value="<?php echo $services->price; ?>">
+                    <input type="number" class="form-control" id="name" name="price" value="<?php echo $services->price; ?>">
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control" id="description" rows="3" placeholder="<?php echo $services->description; ?>"></textarea>
+                    <textarea class="form-control" id="description" rows="3" name="description" placeholder="<?php echo $services->description; ?>"></textarea>
                 </div>
                 <a class="btn btn-secondary" href="<?=base_url('index.php/main/enter')?>" id="<?php echo $services->id; ?>">Back</a>
-                <a class="btn btn-primary" href="<?php echo base_url() ?>index.php/main/update_service/<?php echo $services->id ?>" id="<?php echo $services->id; ?>">Save</a>
+                <input class="btn btn-primary" type="submit" name="save" value="Save">
+              </form>
             </div>
         </div>
     </div>
